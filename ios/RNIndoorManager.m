@@ -37,13 +37,17 @@ RCT_EXPORT_METHOD(stopWayFinding) {
 - (void)indoorLocationManager:(IALocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     (void) manager;
-    CLLocation *l = [(IALocation *)locations.lastObject location];
+    IALocation *l = locations.lastObject;
 //    IARegion *f = [(IALocation *)locations.lastObject region];
 	
-	NSLog(@"position changed to coordinate: %.6fx%.6f", l.coordinate.latitude, l.coordinate.longitude);
+	NSLog(@"position changed to coordinate: %.6fx%.6f", l.location.coordinate.latitude, l.location.coordinate.longitude);
 //    if ([f type] == kIARegionTypeFloorPlan) {
-        [self sendEventWithName:@"locationChanged" body:@{@"lat": [NSNumber numberWithDouble:l.coordinate.latitude],
-                                                          @"lng": [NSNumber numberWithDouble:l.coordinate.longitude],
+        [self sendEventWithName:@"locationChanged" body:@{@"latitude": [NSNumber numberWithDouble:l.location.coordinate.latitude],
+                                                          @"longitude": [NSNumber numberWithDouble:l.location.coordinate.longitude],
+														  @"altitude":[NSNumber numberWithDouble:l.location.altitude],
+														  @"floor": [NSNumber numberWithDouble:l.floor.level],
+														  @"horizontalAccuracy": [NSNumber numberWithDouble:l.location.horizontalAccuracy],
+														  @"verticalAccuracy": [NSNumber numberWithDouble:l.location.verticalAccuracy]
 //                                                          @"atlasId": [f identifier]
                                                           }];
 //    }
