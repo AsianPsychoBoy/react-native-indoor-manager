@@ -6,7 +6,7 @@ RCT_EXPORT_MODULE();
 
 - (NSArray<NSString *> *)supportedEvents
 {
-    return @[@"locationChanged"];
+    return @[@"locationChanged", @"didUpdateRoute"];
 }
 
 - (dispatch_queue_t)methodQueue
@@ -23,7 +23,7 @@ RCT_EXPORT_METHOD(initService: (NSString *)apiKey apiSecret:(NSString *)apiSecre
 	NSLog([NSString stringWithFormat:@"%@, %@", @"IA version:", verStr]);
 }
 
-RCT_EXPORT_METHOD(requestWayFinding: (NSNumber *)latitude longitude: (NSNumber *)longitude floor: (NSNumber *)floor) {
+RCT_EXPORT_METHOD(requestWayFinding: (nonnull NSNumber *)latitude longitude: (nonnull NSNumber *)longitude floor: (nonnull NSNumber *)floor) {
 	IAWayfindingRequest *request = [[IAWayfindingRequest alloc] init];
 	request.coordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue);
 	request.floor = 1;
