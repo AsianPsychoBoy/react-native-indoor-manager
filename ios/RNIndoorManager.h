@@ -10,7 +10,5 @@
 #endif /* RNIndoorManager_h */
 
 @interface RNIndoorManager: RCTEventEmitter <RCTBridgeModule, IALocationManagerDelegate>
-@property (nonatomic) IALocationManager *locationManager;
+	@property (nonatomic) IALocationManager *locationManager;
 @end
-
-

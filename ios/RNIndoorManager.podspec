@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   RNIndoorManager
                    DESC
-  s.homepage     = ""
+  s.homepage     = "https://github.com/tuanna1601/react-native-indoor-manager"
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "author@domain.cn" }
@@ -15,9 +15,6 @@ Pod::Spec.new do |s|
   s.source_files  = "RNIndoorManager/**/*.{h,m}"
   s.requires_arc = true
 
-
-  s.dependency "React"
-  s.dependency "IndoorAtlas"
   #s.dependency "others"
 
 end

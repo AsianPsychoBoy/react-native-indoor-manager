@@ -1,27 +1,57 @@
-
 {
-  "name": "react-native-indoor-manager",
-  "version": "1.0.3",
-  "description": "Added IndoorAtlas support for React Native",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "react-native",
-    "indoor-atlas"
+  "_args": [
+    [
+      "react-native-indoor-manager@1.0.3",
+      "/Users/jackcai/Documents/Github/NavigatAR-v2/NavigatARMobile"
+    ]
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tuanna1601/react-native-indoor-manager.git"    
+  "_from": "react-native-indoor-manager@1.0.3",
+  "_id": "react-native-indoor-manager@1.0.3",
+  "_inBundle": false,
+  "_integrity": "sha512-oky3BaVwjEzHlDSpLsQS56sju3QvnS3E1Hashht4xi42izalodt4gV5MbAiD3R/Rqv2Ds8LYrTHf9SCntNL1eQ==",
+  "_location": "/react-native-indoor-manager",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "react-native-indoor-manager@1.0.3",
+    "name": "react-native-indoor-manager",
+    "escapedName": "react-native-indoor-manager",
+    "rawSpec": "1.0.3",
+    "saveSpec": null,
+    "fetchSpec": "1.0.3"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-indoor-manager/-/react-native-indoor-manager-1.0.3.tgz",
+  "_spec": "1.0.3",
+  "_where": "/Users/jackcai/Documents/Github/NavigatAR-v2/NavigatARMobile",
+  "author": {
+    "name": "Tuan Nguyen"
   },
   "bugs": {
     "url": "https://github.com/tuanna1601/react-native-indoor-manager"
   },
+  "description": "Added IndoorAtlas support for React Native",
   "email": "tuanna1601@gmail.com",
-  "author": "Tuan Nguyen",
+  "homepage": "https://github.com/tuanna1601/react-native-indoor-manager#readme",
+  "keywords": [
+    "react-native",
+    "indoor-atlas"
+  ],
   "license": "BSD-3-Clause",
+  "main": "index.js",
+  "name": "react-native-indoor-manager",
   "peerDependencies": {
     "react-native": "^0.41.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuanna1601/react-native-indoor-manager.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.3"
 }

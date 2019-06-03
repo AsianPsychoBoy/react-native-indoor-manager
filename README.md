@@ -21,7 +21,7 @@
 
 #### Android
 
-1. Open up `android/app/src/main/java/[...]/MainApplication.java`
+1. Open up `android/app/src/main/java/[...]/MainActivity.java`
   - Add `import com.reactlibrary.RNIndoorManagerPackage;` to the imports at the top of the file
   - Add `new RNIndoorManagerPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
@@ -37,16 +37,9 @@
 
 ## Usage
 ```javascript
-import { NativeEventEmitter } from 'react-native';
-import IndoorManager from 'react-native-indoor-manager';
+import RNIndoorManager from 'react-native-indoor-manager';
 
-// Create a React Native NativeEventEmitter
-const indoorEventEmitter = new NativeEventEmitter(IndoorManager);
-// Add listener
-indoorEventEmitter.addListener('locationChanged', location => {
-	// do things
-});
-// init Indoor Atlas service
-IndoorManager.initService(API_KEY, API_SECRET);
+// TODO: What to do with the module?
+RNIndoorManager;
 ```
   
