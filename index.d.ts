@@ -17,6 +17,19 @@ export interface IALocation {
 	verticalAccuracy: number;
 }
 
-export interface IARouteLeg {}
+export interface IANode {
+	longitude: number;
+	latitude: number;
+	floor: number;
+	nodeIndex: number;
+}
+
+export interface IARouteLeg {
+	begin: IANode;
+	end: IANode;
+	length: number;
+	direction: number;
+	edgeIndex: number;
+}
 
 export type IARoute = IARouteLeg[];

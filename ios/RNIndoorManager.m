@@ -79,7 +79,7 @@ RCT_EXPORT_METHOD(stopWayFinding) {
 		};
 		
 		[legs addObject:leg];
-	}alfl
+	}
 	
 	[self sendEventWithName:@"didUpdateRoute" body:@{
 													 @"route": legs
