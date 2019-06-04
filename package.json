@@ -42,6 +42,7 @@
   ],
   "license": "BSD-3-Clause",
   "main": "index.js",
+  "types": "index.d.ts",
   "name": "react-native-indoor-manager",
   "peerDependencies": {
     "react-native": "^0.41.2"

@@ -55,19 +55,35 @@ RCT_EXPORT_METHOD(stopWayFinding) {
 
 - (void)indoorLocationManager:(IALocationManager *)manager didUpdateRoute:(IARoute *)route {
 	(void) manager;
-//	NSMutableArray *r = [[NSMutableArray alloc] init];
-	NSObject *r = (NSObject *)route;
-//	for (int i = 0; i < [route.legs count]; i++)
-//	{
-//		NSDictionary *beginPt = @{
-//			@"lng" : @(route.legs[i].begin.coordinate.longitude)
-//		};
-//		NSDictionary *leg = @{
-//			@"begin" : beginPt
-//		};
-//	}
+	NSMutableArray *legs = [[NSMutableArray alloc] init];
+	for (int i = 0; i < [route.legs count]; i++)
+	{
+		NSDictionary *begin = @{
+			@"longitude" : @(route.legs[i].begin.coordinate.longitude),
+			@"latitude" : @(route.legs[i].begin.coordinate.latitude),
+			@"floor" : @(route.legs[i].begin.floor),
+			@"nodeIndex" : @(route.legs[i].begin.nodeIndex)
+		};
+		NSDictionary *end = @{
+			@"longitude" : @(route.legs[i].end.coordinate.longitude),
+			@"latitude" : @(route.legs[i].end.coordinate.latitude),
+			@"floor" : @(route.legs[i].end.floor),
+			@"nodeIndex" : @(route.legs[i].end.nodeIndex)
+		};
+		NSDictionary *leg = @{
+			@"begin" : begin,
+			@"end" : end,
+			@"length" : @(route.legs[i].length),
+			@"direction" : @(route.legs[i].direction),
+			@"edgeIndex" : @(route.legs[i].edgeIndex)
+		};
+		
+		[legs addObject:leg];
+	}alfl
 	
-	[self sendEventWithName:@"didUpdateRoute" body:r];
+	[self sendEventWithName:@"didUpdateRoute" body:@{
+													 @"route": legs
+													 }];
 }
 
 @end
