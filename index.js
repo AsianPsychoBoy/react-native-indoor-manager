@@ -3,4 +3,4 @@ import { NativeModules } from 'react-native';
 
 const { RNIndoorManager } = NativeModules;
 
-export default RNIndoorManager;
+export const IndoorManager = RNIndoorManager;
