@@ -23,14 +23,15 @@ RCT_EXPORT_METHOD(initService: (NSString *)apiKey apiSecret:(NSString *)apiSecre
 	NSLog([NSString stringWithFormat:@"%@, %@", @"IA version:", verStr]);
 }
 
-RCT_EXPORT_METHOD(requestWayFinding: (nonnull NSNumber *)latitude longitude: (nonnull NSNumber *)longitude floor: (nonnull NSNumber *)floor) {
+RCT_EXPORT_METHOD(startWayfinding: (nonnull NSNumber *)latitude longitude: (nonnull NSNumber *)longitude floor: (nonnull NSNumber *)floor) {
 	IAWayfindingRequest *request = [[IAWayfindingRequest alloc] init];
 	request.coordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue);
 	request.floor = 1;
 	[self.locationManager startMonitoringForWayfinding:request];
 }
 
-RCT_EXPORT_METHOD(stopWayFinding) {
+RCT_EXPORT_METHOD(stopWayfinding) {
+	
 	[self.locationManager stopMonitoringForWayfinding];
 }
 

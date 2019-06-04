@@ -2,8 +2,8 @@ import { EventSubscriptionVendor } from 'react-native';
 
 export interface IndoorManager extends EventSubscriptionVendor {
 	initService(apiKey: string, apiSecret: string): void;
-	requestWayFinding(latitude: number, longitude: number, floor: number): void;
-	stopWayFinding(): void;
+	startWayfinding(latitude: number, longitude: number, floor: number): void;
+	stopWayfinding(): void;
 }
 
 export const IndoorManager: IndoorManager;
