@@ -42,7 +42,7 @@ public class RNIndoorManagerModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void initService() {
+  public void initService(String apiKey, String apiSecret) {
     getCurrentActivity().runOnUiThread(new Runnable() {
       @Override
       public void run() {
@@ -90,7 +90,7 @@ public class RNIndoorManagerModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void startWayFinding(final double latitude, final double longitude, final int floor) {
+  public void startWayfinding(final double latitude, final double longitude, final int floor) {
     getCurrentActivity().runOnUiThread(new Runnable() {
       @Override
       public void run() {
