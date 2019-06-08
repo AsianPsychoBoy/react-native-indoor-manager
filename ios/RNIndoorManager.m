@@ -1,12 +1,13 @@
 
 #import "RNIndoorManager.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation RNIndoorManager
 RCT_EXPORT_MODULE();
 
 - (NSArray<NSString *> *)supportedEvents
 {
-    return @[@"locationChanged", @"didUpdateRoute"];
+    return @[@"locationChanged", @"didUpdateRoute", @"didUpdateHeading"];
 }
 
 - (dispatch_queue_t)methodQueue
@@ -31,7 +32,7 @@ RCT_EXPORT_METHOD(startWayfinding: (nonnull NSNumber *)latitude longitude: (nonn
 }
 
 RCT_EXPORT_METHOD(stopWayfinding) {
-	
+
 	[self.locationManager stopMonitoringForWayfinding];
 }
 
@@ -40,7 +41,7 @@ RCT_EXPORT_METHOD(stopWayfinding) {
     (void) manager;
     IALocation *l = locations.lastObject;
 //    IARegion *f = [(IALocation *)locations.lastObject region];
-	
+
 	NSLog(@"position changed to coordinate: %.6fx%.6f", l.location.coordinate.latitude, l.location.coordinate.longitude);
 //    if ([f type] == kIARegionTypeFloorPlan) {
         [self sendEventWithName:@"locationChanged" body:@{@"latitude": [NSNumber numberWithDouble:l.location.coordinate.latitude],
@@ -78,13 +79,20 @@ RCT_EXPORT_METHOD(stopWayfinding) {
 			@"direction" : @(route.legs[i].direction),
 			@"edgeIndex" : @(route.legs[i].edgeIndex)
 		};
-		
+
 		[legs addObject:leg];
 	}
-	
+
 	[self sendEventWithName:@"didUpdateRoute" body:@{
 													 @"route": legs
 													 }];
+}
+
+- (void)indoorLocationManager:(IALocationManager *)manager didUpdateHeading:(IAHeading *)newHeading {
+	(void) manager;
+    [self sendEventWithName:@"didUpdateHeading" body:@{@"trueHeading": [NSNumber numberWithDouble:newHeading.trueHeading],
+                                                      @"timestamp": newHeading.timestamp
+                                                      }];
 }
 
 @end
